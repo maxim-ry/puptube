@@ -1,93 +1,27 @@
 <div>
-    <h2>Home</h2>
-    <input type="text" placeholder="Search Videos">
-    <div class="video-list">
+  <mat-toolbar color="primary">
+    <span>PupTube</span>
+  </mat-toolbar>
 
+  <div class="search-container">
+    <mat-form-field class="search-field">
+      <input matInput placeholder="Search for dog videos">
+    </mat-form-field>
+  </div>
 
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-
-    
-    </div>
-    <div>Loading...</div>
+  
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="!loading && videos.length === 0">No videos found.</div>
+  <div *ngIf="videos.length > 0">
+  <div class="video-list">
+  <mat-card *ngFor="let video of videos" class="video-card">
+    <img mat-card-image [src]="video.snippet.thumbnails.high.url">
+    <mat-card-content>
+      <h3>{{ video.snippet.title }}</h3>
+      <p>{{ video.snippet.description }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+  </div>
   </div>
   
