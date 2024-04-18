@@ -1,93 +1,20 @@
 <div>
-    <h2>Home</h2>
+    <h2>PupTube | Home</h2>
     <input type="text" placeholder="Search Videos">
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="!loading && videos.length === 0">No videos found.</div>
+  <div *ngIf="videos.length > 0">
     <div class="video-list">
-
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      <div *ngFor="let video of videos" class="video-item">
+        <div class="thumbnail">
+          <img [src]="video.snippet.thumbnails.high.url" alt="Video Thumbnail">
         </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        <div class="video-details">
+          <h3>{{ video.snippet.title }}</h3>
+          <p>{{ video.snippet.description }}</p>
         </div>
-        <p class="description-placeholder">Description for Video</p>
       </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-      <div class="video-item">
-        <h3 class="title-placeholder">Video Title</h3>
-        <div class="thumbnail-placeholder">
-          <iframe width="320" height="180" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p class="description-placeholder">Description for Video</p>
-      </div>
-
-
-    
     </div>
-    <div>Loading...</div>
+  </div>
   </div>
   
