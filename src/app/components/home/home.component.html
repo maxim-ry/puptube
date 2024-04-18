@@ -1,20 +1,27 @@
 <div>
-    <h2>PupTube | Home</h2>
-    <input type="text" placeholder="Search Videos">
+  <mat-toolbar color="primary">
+    <span>PupTube</span>
+  </mat-toolbar>
+
+  <div class="search-container">
+    <mat-form-field class="search-field">
+      <input matInput placeholder="Search for dog videos">
+    </mat-form-field>
+  </div>
+
+  
   <div *ngIf="loading">Loading...</div>
   <div *ngIf="!loading && videos.length === 0">No videos found.</div>
   <div *ngIf="videos.length > 0">
-    <div class="video-list">
-      <div *ngFor="let video of videos" class="video-item">
-        <div class="thumbnail">
-          <img [src]="video.snippet.thumbnails.high.url" alt="Video Thumbnail">
-        </div>
-        <div class="video-details">
-          <h3>{{ video.snippet.title }}</h3>
-          <p>{{ video.snippet.description }}</p>
-        </div>
-      </div>
-    </div>
+  <div class="video-list">
+  <mat-card *ngFor="let video of videos" class="video-card">
+    <img mat-card-image [src]="video.snippet.thumbnails.high.url">
+    <mat-card-content>
+      <h3>{{ video.snippet.title }}</h3>
+      <p>{{ video.snippet.description }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
   </div>
   </div>
   

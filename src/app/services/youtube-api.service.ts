@@ -17,6 +17,7 @@ export class YoutubeApiService {
       .set('q', query)
       .set('type', 'video')
       .set('maxResults', '10')
+      
       .set('key', this.apiKey);
   
     return this.http.get(this.apiUrl, { params });
