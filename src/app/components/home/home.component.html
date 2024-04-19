@@ -5,8 +5,9 @@
     <span class="logo">PupTube</span>
     <mat-form-field class="search-field">
       <mat-icon matPrefix>search</mat-icon>
-      <input matInput placeholder="Search for dog videos">
+      <input matInput placeholder="Search for dog videos" [(ngModel)]="query" (keydown.enter)="searchVideos()">
     </mat-form-field>
+
   </mat-toolbar>
 
 
