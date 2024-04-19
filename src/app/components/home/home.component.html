@@ -1,27 +1,27 @@
-<div>
-  <mat-toolbar color="primary">
-    <span>PupTube</span>
-  </mat-toolbar>
+<div class="dummy-header"></div>
 
-  <div class="search-container">
+
+  <mat-toolbar color="primary">
+    <span class="logo">PupTube</span>
     <mat-form-field class="search-field">
+      <mat-icon matPrefix>search</mat-icon>
       <input matInput placeholder="Search for dog videos">
     </mat-form-field>
-  </div>
+  </mat-toolbar>
 
-  
-  <div *ngIf="loading">Loading...</div>
-  <div *ngIf="!loading && videos.length === 0">No videos found.</div>
-  <div *ngIf="videos.length > 0">
-  <div class="video-list">
-  <mat-card *ngFor="let video of videos" class="video-card">
-    <img mat-card-image [src]="video.snippet.thumbnails.high.url">
-    <mat-card-content>
-      <h3>{{ video.snippet.title }}</h3>
-      <p>{{ video.snippet.description }}</p>
-    </mat-card-content>
-  </mat-card>
+
+<div class="container">
+  <div class="content">
+    <div *ngIf="loading" class="loading">Loading...</div>
+    <div *ngIf="!loading && videos.length === 0" class="no-videos">No videos found.</div>
+    <div *ngIf="videos.length > 0" class="video-list">
+      <mat-card *ngFor="let video of videos" class="video-card">
+        <img mat-card-image [src]="video.snippet.thumbnails.high.url" alt="Video Thumbnail">
+        <mat-card-content>
+          <h3>{{ video.snippet.title }}</h3>
+          <p>{{ video.snippet.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
-  </div>
-  </div>
-  

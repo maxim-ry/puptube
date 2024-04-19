@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
+    MatIconModule,
   ],
   providers: [YoutubeApiService],
   bootstrap: [AppComponent]
