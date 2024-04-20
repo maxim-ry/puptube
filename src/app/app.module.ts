@@ -12,7 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 // App Routing
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -22,16 +23,24 @@ import { VideoComponent } from './components/video/video.component';
 // Services
 import { YoutubeApiService } from './services/youtube-api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VideoContainerComponent } from './components/video-container/video-container.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'video/:id', component: VideoComponent }
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     VideoComponent,
+    VideoContainerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot(routes),
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -41,6 +50,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatButtonModule,
   ],
+  exports: [RouterModule],
   providers: [YoutubeApiService],
   bootstrap: [AppComponent]
 })
