@@ -15,7 +15,9 @@
     <div *ngIf="!loading && videos.length === 0" class="no-videos">No videos found.</div>
     <div *ngIf="videos.length > 0" class="video-list">
       <div *ngFor="let video of videos">
+        <div (click)="navigateToVideo(video)">
         <app-video-container [video]="video"></app-video-container>
+      </div>
       </div>
     </div>
   </div>
