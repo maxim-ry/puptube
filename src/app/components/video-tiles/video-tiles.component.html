@@ -1,0 +1,30 @@
+<div style="height: calc(100vh - 64px)">
+  <div fxFlex="auto" fxLayout="column" style="background-color: white">
+    <div (scroll)="onScroll($event)" fxFlex style="overflow-y: auto">
+      <div *ngIf="!selectedVideo">
+        <div
+          *ngIf="videos.length > 0"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-around"
+        >
+          <div *ngFor="let video of videos">
+            <div (click)="selectVideoToPlay(video)" matTooltip="Click tile to watch">
+              <app-video-container [video]="video"></app-video-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="selectedVideo">
+        <app-video
+          [video]="selectedVideo"
+          (closeVideo)="closeVideo($event)"
+        ></app-video>
+      </div>
+    </div>
+
+    <div fxFlex="none" style="background: lightgrey; font-size: smaller">
+      (c) 2024 Max Ryabinov
+    </div>
+  </div>
+</div>

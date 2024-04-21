@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { YoutubeApiService } from 'src/app/services/youtube-api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -6,10 +6,11 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
-  styleUrls: ['./video.component.css']
+  styleUrls: ['./video.component.css'],
 })
-export class VideoComponent implements OnInit {
-  video: any;
+export class VideoComponent implements OnInit, OnDestroy {
+  @Input() video: any;
+  @Output() closeVideo = new EventEmitter<any>();
   videoUrl: SafeResourceUrl | null = null;
   descriptionParagraphs: string[] = [];
   showDescription = false;
@@ -21,13 +22,15 @@ export class VideoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const videoData = history.state.videoData;
-      this.video = videoData;
-      const videoId = videoData.id.videoId;
-      this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`);
-      this.fetchVideoDetails(videoId);
-    });
+    const videoId = this.video.id.videoId;
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`
+    );
+    this.fetchVideoDetails(videoId);
+  }
+
+  ngOnDestroy(): void {
+    console.log('Video player view is destroyed');
   }
 
   fetchVideoDetails(videoId: string): void {
@@ -44,5 +47,10 @@ export class VideoComponent implements OnInit {
 
   toggleDescription(): void {
     this.showDescription = !this.showDescription;
+  }
+
+  onCloseVideo() {
+    console.log('Close video event');
+    this.closeVideo.emit(this.video);
   }
 }

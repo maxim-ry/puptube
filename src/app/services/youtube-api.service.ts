@@ -1,26 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ENVIRONMENT } from '../../environments/environment.dev';
 
 @Injectable({
   providedIn: 'root',
 })
 export class YoutubeApiService {
-  private readonly MAX_SEARCH_RESULT = '2';
-  private readonly apiKey = 'API_KEY';
+  private readonly apiKey = ENVIRONMENT.API_KEY;
   private readonly apiUrl = 'https://www.googleapis.com/youtube/v3';
 
   constructor(private http: HttpClient) {}
 
-  searchVideos(query: string, nextPageToken?: string): Observable<any> {
+  searchVideos(
+    query: string,
+    nextPageToken: string,
+    maxResults: number
+  ): Observable<any> {
     let params = new HttpParams()
       .set('part', 'snippet')
       .set('q', query)
       .set('type', 'video')
-      .set('maxResults', this.MAX_SEARCH_RESULT)
+      .set('maxResults', maxResults)
       .set('key', this.apiKey);
 
-    if (nextPageToken) {
+    if (nextPageToken && nextPageToken !== 'none') {
       params = params.set('pageToken', nextPageToken);
     }
 

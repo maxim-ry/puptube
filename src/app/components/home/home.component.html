@@ -3,46 +3,32 @@
     <img src="assets/images/dog.png" />
     <div fxFlex="1"></div>
 
-    <span fxFlex="28">PupTube</span>
+    <span fxFlex="28">PupTube 1.0</span>
     <div fxFlex="1"></div>
 
     <mat-form-field appearance="fill" fxFlex="55%" fxLayoutAlign="center">
-      <mat-icon matPrefix>search</mat-icon>
       <input
         matInput
         type="text"
         placeholder="Search for dogs"
         [(ngModel)]="query"
-        (keydown.enter)="searchVideos()"
+        (keydown.enter)="onSubmit()"
+        matTooltip="Type your search criteria and press ENTER"
       />
+      <mat-icon
+        matSuffix
+        (click)="onSubmit()"
+        matTooltip="Click here to search for dogs"
+        style="cursor: pointer"
+        >search</mat-icon
+      >
     </mat-form-field>
-
-    <mat-form-field appearance="fill" fxFlex="15%" fxLayoutAlign="end">
-      <mat-label>Size</mat-label>
-      <input matInput type="number"
-      min="10"
-      max="20"
-      (ngModelChange)="onSizeChange($event)"
-      oninput="this.value=this.value.slice(0,2); this.value=this.value > 20 ? 20 : this.value; ; this.value=this.value < 10 ? 10 : this.value"
-      [(ngModel)]="searchResult" />
-    </mat-form-field>
+    <span>Found: {{ count }}</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="container">
-  <div class="content">
-    <div *ngIf="loading" class="loading-container">
-      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-    </div>
-    <div *ngIf="!loading && videos.length === 0" class="no-videos">
-      No videos found.
-    </div>
-    <div *ngIf="videos.length > 0" class="video-list">
-      <div *ngFor="let video of videos">
-        <div (click)="navigateToVideo(video)">
-          <app-video-container [video]="video"></app-video-container>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<app-video-tiles
+  (updateCount)="updateCount($event)"
+  [query]="query"
+  [events]="videoTilesSubject.asObservable()"
+></app-video-tiles>

@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // App Routing
 import { RouterModule, Routes } from '@angular/router';
@@ -26,11 +27,11 @@ import { VideoContainerComponent } from './components/video-container/video-cont
 
 // Services
 import { YoutubeApiService } from './services/youtube-api.service';
+import { VideoTilesComponent } from './components/video-tiles/video-tiles.component';
 
 // Routes
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'video/:videoId', component: VideoComponent }, // Define route for VideoComponent with videoId parameter
+  { path: '', component: AppComponent },
   { path: '**', redirectTo: '' } // Redirect to HomeComponent for unknown routes
 ];
 
@@ -41,6 +42,7 @@ const routes: Routes = [
     HomeComponent,
     VideoComponent,
     VideoContainerComponent,
+    VideoTilesComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ const routes: Routes = [
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTooltipModule
   ],
   exports: [RouterModule],
   providers: [YoutubeApiService],
