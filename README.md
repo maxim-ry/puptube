@@ -1,29 +1,27 @@
 # PupTube
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
+PupTube is a web application that allows users to search for dog-related YouTube videos.  
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before you begin, make sure to have npm installed.
 
-## Code scaffolding
+Additionally, this project was built using:
+1. Node v18.20.2
+2. Angular v15.2.10  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+1. Clone the repository: `git clone https://github.com/maxim-ry/puptube`
+2. Navigate to the project directory: `cd PupTube`
+3. Install dependencies: `npm install`  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+1. Start the development server: `ng serve`
+2. Open your browser and go to: `http://localhost:4200/`
+3. Enter a search term related to dogs in the search bar, then click the search icon or press Enter.  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## License
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# puptube
-# puptube
+This project is licensed under the MIT License. See the LICENSE file for details.
