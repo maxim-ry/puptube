@@ -1,49 +1,17 @@
-.dummy-header {
-  height: 80px;
-}
-
-mat-toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 20px;
-}
-
 .mat-icon {
   color: rgba(0, 0, 0, 0.54);
 }
 
-
-.search-field {
-  flex: 0 0 auto;
-  max-width: 700px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.content {
-  margin-top: 20px;
-}
-
-.loading, .no-videos {
+.no-videos {
   margin-top: 20px;
   text-align: center;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; 
 }
 
 .video-list {
@@ -51,5 +19,4 @@ mat-toolbar {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-
 

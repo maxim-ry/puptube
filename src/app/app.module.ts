@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 // Angular Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -54,6 +55,7 @@ const routes: Routes = [
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
+    FlexLayoutModule
   ],
   exports: [RouterModule],
   providers: [YoutubeApiService],
