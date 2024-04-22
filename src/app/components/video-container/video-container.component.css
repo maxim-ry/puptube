@@ -1,11 +1,11 @@
 .video-card {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: lightblue; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    background-color: white; 
     margin: 10px; 
     width: 300px;
     overflow: auto;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   
   mat-card-content {

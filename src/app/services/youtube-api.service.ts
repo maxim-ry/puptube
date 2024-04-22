@@ -7,16 +7,12 @@ import { ENVIRONMENT } from '../../environments/environment.dev';
   providedIn: 'root',
 })
 export class YoutubeApiService {
-  private readonly apiKey = ENVIRONMENT.API_KEY;
+  private readonly apiKey = ENVIRONMENT.API_KEY; // INSERT API KEY HERE
   private readonly apiUrl = 'https://www.googleapis.com/youtube/v3';
 
   constructor(private http: HttpClient) {}
 
-  searchVideos(
-    query: string,
-    nextPageToken: string,
-    maxResults: number
-  ): Observable<any> {
+  searchVideos(query: string, nextPageToken: string, maxResults: number): Observable<any> {
     let params = new HttpParams()
       .set('part', 'snippet')
       .set('q', query)

@@ -12,7 +12,6 @@ import {
 import { Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { YoutubeApiService } from 'src/app/services/youtube-api.service';
-import { ENVIRONMENT } from 'src/environments/environment.dev';
 
 @Component({
   selector: 'app-video-tiles',
@@ -20,8 +19,8 @@ import { ENVIRONMENT } from 'src/environments/environment.dev';
   styleUrls: ['./video-tiles.component.css'],
 })
 export class VideoTilesComponent implements OnInit, OnDestroy {
-  readonly MAX_SEARCH_RESULTS = ENVIRONMENT.MAX_SEARCH_RESULTS;
-  private readonly simulateLoad = ENVIRONMENT.SIMULATE_LOAD;
+  readonly MAX_SEARCH_RESULTS = 25;
+  private readonly simulateLoad = true; // Set this to false if using an API token.
 
   @Output() updateCount = new EventEmitter<any>();
   @Input() query = '';

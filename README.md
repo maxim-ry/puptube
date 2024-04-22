@@ -14,13 +14,14 @@ Additionally, this project was built using:
 
 1. Clone the repository: `git clone https://github.com/maxim-ry/puptube`
 2. Navigate to the project directory: `cd PupTube`
-3. Install dependencies: `npm install`  
+3. Install dependencies: `npm install`
 
 ## Usage
 
-1. Start the development server: `ng serve`
-2. Open your browser and go to: `http://localhost:4200/`
-3. Enter a search term related to dogs in the search bar, then click the search icon or press Enter.  
+1. Navigate to `/src/app/services/youtube-api.service.ts` and insert API key.
+2. Start the development server: `ng serve`
+3. Open your browser and go to: `http://localhost:4200/`
+4. Enter a search term related to dogs in the search bar, then click the search icon or press Enter.  
 
 ## License
 
