@@ -20,7 +20,7 @@ import { YoutubeApiService } from 'src/app/services/youtube-api.service';
 })
 export class VideoTilesComponent implements OnInit, OnDestroy {
   readonly MAX_SEARCH_RESULTS = 25;
-  private readonly simulateLoad = true; // Set this to false if using an API token.
+  private readonly simulateLoad = false; // Set this to false if using an API token.
 
   @Output() updateCount = new EventEmitter<any>();
   @Input() query = '';
