@@ -1,4 +1,4 @@
-# PupTube
+# PupTube ![Alt text](/src/assets/images/dog.png?raw=true "PupeTube")
 
 PupTube is a web application that allows users to search for dog-related YouTube videos.  
 
